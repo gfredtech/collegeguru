@@ -26,7 +26,82 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <form className="form" onSubmit={e => onSubmit(e)}>
+      <div className="login-page hold-transition">
+        <div className="login-box">
+          <div className="login-logo">
+            <Link to="/">
+              <b>College</b>Guru
+            </Link>
+          </div>
+          <div className="card">
+            <div className="card-body login-card-body">
+              <p className="login-box-msg">Sign in to start your session</p>
+
+              <form onSubmit={e => onSubmit(e)}>
+                <div className="input-group mb-3">
+                  <input
+                    name="email"
+                    placeholder="Email Address"
+                    className="form-control"
+                    onChange={e => onChange(e)}
+                    type="email"
+                    value={email}
+                    required
+                  />
+
+                  <div className="input-group-append">
+                    <div className="input-group-text">
+                      <span className="fas fa-envelope"></span>
+                    </div>
+                  </div>
+                </div>
+                <div className="input-group mb-3">
+                  <input
+                    name="password"
+                    placeholder="Password"
+                    onChange={e => onChange(e)}
+                    className="form-control"
+                    type="password"
+                    value={password}
+                  />
+
+                  <div className="input-group-append">
+                    <div className="input-group-text">
+                      <span className="fas fa-lock"></span>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-8">
+                    <div className="icheck-primary">
+                      <input type="checkbox" id="remember" />
+                      <label for="remember">Remember Me</label>
+                    </div>
+                  </div>
+                  <div className="col-4">
+                    <input
+                      type="submit"
+                      className="btn btn-primary btn-block"
+                      value="Login"
+                    />
+                  </div>
+                </div>
+              </form>
+
+              <p className="mb-0">
+                Don't have an account?{' '}
+                <Link to="/register" className="text-center">
+                  Sign Up.
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  );
+
+  /** <Fragment>
         <input
           name="email"
           placeholder="Email Address"
@@ -42,13 +117,9 @@ const Login = ({ login, isAuthenticated }) => {
           type="password"
           value={password}
         />
-        <input type="submit" value="Login" />
       </form>
-      <p>
-        Don't have an account? <Link to="/register">Sign Up.</Link>
-      </p>
     </Fragment>
-  );
+        **/
 };
 
 Login.propTypes = {
