@@ -1,7 +1,8 @@
 const HttpStatus = require("http-status-codes");
-const argon2 = require("argon2");
+const bcrypt =  require('bcrypt-nodejs');
+
 const { generateToken } = require("../helpers/jwt");
-const User = require("../models/User");
+const User = require("../models/Applicant");
 const {
   respondWithWarning,
   respondWithSuccess

@@ -1,7 +1,7 @@
 const HttpStatus = require("http-status-codes");
 const { respondWithWarning } = require("../helpers/responseHandler");
 const { verifyToken } = require("../helpers/jwt");
-const User = require("../models/User");
+const User = require("../models/Applicant");
 
 /**
  *@param {Object} req
