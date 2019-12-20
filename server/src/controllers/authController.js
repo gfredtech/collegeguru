@@ -53,15 +53,7 @@ const login = async (req, res) => {
 const signup = async (req, res) => {
   console.log("POST api/v1/auth/signup");
   try {
-    const {
-      firstname,
-      lastname,
-      email,
-      number,
-      dob,
-      address,
-      password
-    } = req.body;
+    const { email, password } = req.body;
     let user = await User.findOne({ email });
     if (user) {
       return respondWithWarning(
@@ -74,12 +66,7 @@ const signup = async (req, res) => {
 
     const passwordHash = await argon2.hash(password);
     user = new User({
-      firstname,
-      lastname,
       email,
-      number,
-      address,
-      dob,
       passwordHash
     });
     await user.save();
