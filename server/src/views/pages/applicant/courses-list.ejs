@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-12">
+
+
+
+            <div class="card">
+                <div class="card-header">
+
+
+   <h3 class="card-title">Programmes - <%-courses.length%></h3>
+                </div>
+
+
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Programme Name</th>
+                            <th>Max Students</th>
+                            <th></th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <%courses.forEach((course,index)=> {%>
+                            <tr>
+                                <td><%-index + 1%></td>
+                                <td><%-course.courseName%></td>
+                                <td> <%-course.max%></td>
+                                <td><a href=""> View Applicants</a> </td>
+                            </tr>
+                        <%})%>
+                        </tbody>
+
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+    </div>
+    <!-- /.col -->
+</div>
+    <div class="row">
+        <div class="col-12">
+            <a href="add_programme" class="btn btn-success float-right">Add New Programme</a>
+        </div>
+    </div>
+<!-- /.row -->
+</div>

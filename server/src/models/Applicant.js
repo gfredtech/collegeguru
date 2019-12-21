@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
 const ApplicantSchema = new Schema({
-  firstname: { type: String },
-  lastname: { type: String },
+  fullName: { type: String },
   email: { type: String, required: true, unique: true },
-  passwordHash: { type: String, required: true },
+  password: { type: String, required: false },
+  passwordHash: { type: String, required: false },
   number: { type: String },
   dob: { type: Date },
   address: { type: String },
@@ -13,6 +15,8 @@ const ApplicantSchema = new Schema({
   relativeName: { type: String },
   relativeNumber: { type: String },
   relativeOccupation: { type: String },
+  aggregate: {type: Number, required: true, default: Math.floor(getRandomArbitrary(6, 24))},
+
   wassceCourses: [
     {
       courseName: { type: String },

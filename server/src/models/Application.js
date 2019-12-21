@@ -2,14 +2,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const ApplicationSchema = new Schema({
-  applicantId: {
-    ref: "Applicant",
-    type: String
-  },
-  college: {
-    ref: "College"
-  },
-  status: { type: String, enum: ["PENDING", "SUBMITTED"] },
+  applicant: {ref: "Applicant", type: String, required: true},
+  college: {ref: "College", type: String, required: true},
+  status: { type: String, enum: ["PENDING", "ACCEPTED", "REJECTED", 'PROCESSING'], default: 'PENDING' },
+
   //Courses
   course1: { type: String },
   course2: { type: String },

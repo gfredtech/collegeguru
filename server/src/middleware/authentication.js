@@ -1,7 +1,9 @@
-const HttpStatus = require("http-status-codes");
+
+
+const httpStatus = require("http-status-codes");
 const { respondWithWarning } = require("../helpers/responseHandler");
 const { verifyToken } = require("../helpers/jwt");
-const User = require("../models/Applicant");
+const Applicant = require("../models/Applicant");
 
 /**
  *@param {Object} req
@@ -21,7 +23,7 @@ const authenticateUserToken = async (req, res, next) => {
   try {
     const { key } = verifyToken(token);
     const { id } = key;
-    req.user = await User.findOne({ id });
+    req.user = await Applicant.findById( id );
     next();
   } catch (e) {
     return respondWithWarning(res, httpStatus.UNAUTHORIZED, "JWT Error", {

@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-12"> <!-- /.card -->
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">MyColleges - <%- apps.length%></h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>University</th>
+                            <th>Courses</th>
+                            <th>Application Status</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <%apps.forEach((app, index)=>{ %>
+                            <tr>
+                                <td><%-index + 1%></td>
+                                <td> <%- app.college.name%></td>
+                                <td><b><%-app.course1%>, <%-app.course2%>,<%-app.course3%>, <%-app.course4%></b></td>
+                                <td><%-app.status%></td>
+                            </tr>
+                        <%})%>
+                        </tbody>
+
+                    </table>
+
+
+
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+
+    <hr/>
+
+    <h3>Apply to New University</h3>
+    <div class="row">
+        <form  action="apply_to_college" class="col-12" method="get">
+            <select  name="college" class="form-control custom-select">
+                <option selected="" disabled="">Select one</option>
+                <%colleges.forEach( college=> {%>
+                    <option value="<%-college.id%>"><%- college.name%></option>
+                <%})%>
+
+            </select>
+
+            <button type="submit" href="apply_to_college" class="btn btn-success float-right">Apply </button>
+        </form>
+    </div>
+    <!-- /.row -->
+</div>

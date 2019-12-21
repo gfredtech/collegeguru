@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-12">
+
+
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-title">All Applicants</h6>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+
+
+
+                        <tr>
+                            <th>#</th>
+                            <th>Applicant Name</th>
+                            <th>Selected Courses</th>
+                            <th>Agreegate</th>
+                        </tr>
+
+
+                        </thead>
+
+                        <tbody>
+                        <%apps.forEach((app, index)=> {%>
+                        <tr>
+                            <td><%-index+ 1%></td>
+                            <td><%-app.applicant.fullName%></td>
+
+                            <td><%-app.course1%>, <%-app.course2%>,<%-app.course3%>, <%-app.course4%>,</td>
+                            <td><%-app.applicant.aggregate%></td>
+                        </tr>
+                        <%})%>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div>

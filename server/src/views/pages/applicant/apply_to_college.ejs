@@ -1,0 +1,71 @@
+<div class="container-fluid">
+
+    <div class="card">
+        <div class="card-body login-card-body">
+            <h4 class="login-box-msg">Apply to <%- college.name %> </h4>
+
+            <form action="/applicant/apply_to_college?college=<%-college.id%>" method="post">
+
+                <div class="input-group mb-3">
+                    <label>First Choice</label>
+
+                    <select  required name="course1" class="form-control custom-select">
+                        <option selected="" disabled="">Select one</option>
+                        <% college.courses.forEach( course=> { %>
+                        <option value="<%- course.courseName %>"><%- course.courseName %></option>
+                        <% }) %>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group mb-3">
+                    <label>Second Choice</label>
+
+                    <select  required name="course2" class="form-control custom-select">
+                        <option selected="" disabled="">Select one</option>
+                        <% college.courses.forEach( course=> { %>
+                            <option value="<%- course.courseName %>"><%- course.courseName %></option>
+                        <% }) %>
+
+                    </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label>Third Choice</label>
+                    <select  required name="course3" class="form-control custom-select">
+                        <option selected="" disabled="">Select one</option>
+                        <% college.courses.forEach( course=> { %>
+                            <option value="<%- course.courseName %>"><%- course.courseName %></option>
+                        <% }) %>
+
+                    </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label>Fourth Choice</label>
+                    <select  required name="course4" class="form-control custom-select">
+                        <option selected="" disabled="">Select one</option>
+                        <% college.courses.forEach( course=> { %>
+                            <option value="<%- course.courseName %>"><%- course.courseName %></option>
+                        <% }) %>
+
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="social-auth-links text-center mb-3">
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">APPLY to School</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+
+    <hr/>
+    <div class="row"></div>
+
+</div><!-- /.container-fluid -->
+   
